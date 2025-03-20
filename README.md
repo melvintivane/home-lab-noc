@@ -2,6 +2,25 @@
 
 ![Dashboard Preview](docs/dashboard-screenshot.png)
 
+A production-ready Network Operations Center (NOC) simulation environment with automated monitoring, alerting, and remediation capabilities.
+
+## 🌟 Features
+
+- Real-time infrastructure monitoring using Nagios Core
+- Multi-channel alert system (Slack + Email)
+- Automated incident remediation scripts
+- Docker-based isolated environment
+- Custom network health checks
+- Historical performance metrics
+- CI/CD-ready configuration
+
+## 🛠 Tech Stack
+
+**Core:** Nagios 4.x • Docker • Bash  
+**Integrations:** Slack API • SMTP • Webhooks  
+**Datastores:** MySQL • Flat-file logging  
+**Monitoring:** CPU/Memory/Disk metrics • Service status • Network latency
+
 ## 📊 Monitored Metrics
 
 - Host Availability
