@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nagios:
+    image: jasonrivers/nagios:latest
+    container_name: noc-nagios
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nagios-config:/opt/nagios/etc
+      - ./scripts:/usr/lib/nagios/plugins/custom
+    environment:
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK}
+      - SLACK_CHANNEL=${SLACK_CHANNEL}
+    networks:
+      - noc-net
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=nagios
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - noc-net
+
+volumes:
+  db_data:
+
+networks:
+  noc-net:
+    driver: bridge
